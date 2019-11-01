@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -20,10 +21,9 @@ import java.util.Map;
  * @author Happy
  * @date 2019/11/1
  */
+@Log4j2
 @Component
 public class JwtUtils {
-
-	private static final Logger LOGGER = LogManager.getLogger(JwtUtils.class);
 
 	private static final String KEY = "C2$rjNMc78$LiiUD";
 
@@ -64,7 +64,7 @@ public class JwtUtils {
 		Claim claim = claims.get("loginName");
 		System.out.println(claim.asString());
 		List<String> audience = jwt.getAudience();
-		LOGGER.debug("subject={}",subject);
-		LOGGER.debug("audience={}",audience);
+		log.debug("subject={}",subject);
+		log.debug("audience={}",audience);
 	}
 }

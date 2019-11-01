@@ -1,4 +1,4 @@
-package com.happy.springboot.common.constants;
+package com.happy.springboot.common.constant;
 /**
  * 常量类
  *

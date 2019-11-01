@@ -1,6 +1,8 @@
 package com.happy.springboot.common.exception;
 
 import com.happy.springboot.common.enums.CodeEnums;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 异常类
@@ -8,6 +10,8 @@ import com.happy.springboot.common.enums.CodeEnums;
  * @author Happy
  * @date 2019/6/4
  */
+@Getter
+@Setter
 public class CustomRuntimeException extends RuntimeException{
 
 	private static final long serialVersionUID = 86636793127524309L;
@@ -50,31 +54,6 @@ public class CustomRuntimeException extends RuntimeException{
 		super();
 		this.code = codeEnums.getCode();
 		this.message = codeEnums.getMessage();
-		this.errorMsg = errorMsg;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	@Override
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
 }

@@ -1,8 +1,7 @@
 package com.happy.springboot.common.util;
 
 import com.sun.istack.internal.NotNull;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -15,8 +14,8 @@ import java.util.Random;
  * @author Happy
  * @date 2019/11/1
  */
+@Log4j2
 public class AesUtils {
-	private static final Logger LOGGER = LogManager.getLogger(AesUtils.class);
 
 	/**
 	 * 算法/模式/补码方式
@@ -112,7 +111,7 @@ public class AesUtils {
 		if (length == KEY_LENGTH_16 || length == KEY_LENGTH_24 || length != KEY_LENGTH_32) {
 			return true;
 		} else {
-			LOGGER.error("长度必须为16/24/32");
+			log.error("长度必须为16/24/32");
 			return false;
 		}
 	}

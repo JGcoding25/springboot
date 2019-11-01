@@ -1,10 +1,8 @@
 package com.happy.springboot.common.util;
 
-import com.happy.springboot.common.constants.Constants;
 import com.happy.springboot.common.enums.CodeEnums;
 import com.happy.springboot.common.exception.CustomRuntimeException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.util.StringUtils;
 
@@ -27,9 +25,8 @@ import java.util.Map;
  * @author Happy
  * @date 2019/11/1
  */
+@Log4j2
 public class RsaUtils {
-
-	private static final Logger LOGGER = LogManager.getLogger(RsaUtils.class);
 
 	/**
 	 * 加密算法
@@ -78,12 +75,12 @@ public class RsaUtils {
 			RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
 			RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
 
-			Map<String, String> keyMap = new HashMap(2);
+			Map<String, String> keyMap = new HashMap<>(2);
 			keyMap.put(PUBLIC_KEY, Base64.getEncoder().encodeToString(publicKey.getEncoded()));
 			keyMap.put(PRIVATE_KEY, Base64.getEncoder().encodeToString(privateKey.getEncoded()));
 			return keyMap;
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error("秘钥生产异常",e);
+			log.error("秘钥生产异常",e);
 		}
 		return null;
 	}
@@ -215,13 +212,13 @@ public class RsaUtils {
 			return StringUtils.isEmpty(charset) ? new String(decryptdData)
 					: new String(decryptdData, charset);
 		}catch (Exception e){
-			LOGGER.error("RSA2解密异常",e);
+			log.error("RSA2解密异常",e);
 		}finally {
 			if(out != null){
 				try {
 					out.close();
 				} catch (IOException e) {
-					LOGGER.error(e);
+					log.error(e);
 				}
 			}
 		}
@@ -265,13 +262,13 @@ public class RsaUtils {
 			return StringUtils.isEmpty(charset) ? new String(encryptedData)
 					: new String(encryptedData, charset);
 		}catch (Exception e){
-			LOGGER.error("RSA2加密异常",e);
+			log.error("RSA2加密异常",e);
 		}finally {
 			if(out != null){
 				try {
 					out.close();
 				} catch (IOException e) {
-					LOGGER.error(e);
+					log.error(e);
 				}
 			}
 		}

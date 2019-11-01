@@ -2,6 +2,9 @@ package com.happy.springboot.common.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.happy.springboot.common.enums.CodeEnums;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -11,6 +14,9 @@ import java.io.Serializable;
  * @author Happy
  * @date 2019/5/17
  */
+@ToString
+@Getter
+@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseResult<T> implements Serializable {
 
@@ -39,38 +45,5 @@ public class BaseResult<T> implements Serializable {
 		this.code = codeEnums.getCode();
 		this.message = codeEnums.getMessage();
 		this.data = data;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	@Override
-	public String toString() {
-		return "BaseResult{" +
-				", data=" + data +
-				", code='" + code + '\'' +
-				", message='" + message + '\'' +
-				'}';
 	}
 }
