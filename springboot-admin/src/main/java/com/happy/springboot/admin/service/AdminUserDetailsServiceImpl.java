@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 */
 @Component
 @Log4j2
-public class AdminUserDetailsService implements UserDetailsService {
+public class AdminUserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private AdminUserDAO adminUserDAO;

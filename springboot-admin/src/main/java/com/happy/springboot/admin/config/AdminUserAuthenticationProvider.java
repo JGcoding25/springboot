@@ -1,6 +1,6 @@
 package com.happy.springboot.admin.config;
 
-import com.happy.springboot.admin.service.AdminUserDetailsService;
+import com.happy.springboot.admin.service.AdminUserDetailsServiceImpl;
 import com.happy.springboot.common.util.RsaUtils;
 import com.happy.springboot.core.constant.Constants;
 import lombok.extern.log4j.Log4j2;
@@ -29,7 +29,7 @@ import java.util.Collection;
 public class AdminUserAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private AdminUserDetailsService adminUserDetailsService;
+	private AdminUserDetailsServiceImpl adminUserDetailsService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;

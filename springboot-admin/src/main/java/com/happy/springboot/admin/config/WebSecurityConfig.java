@@ -1,11 +1,8 @@
 package com.happy.springboot.admin.config;
 
-import com.happy.springboot.admin.service.AdminUserDetailsService;
-import com.happy.springboot.security.config.*;
-import com.happy.springboot.security.handler.SecurityAuthenticationEntryPoint;
-import com.happy.springboot.security.handler.SecurityAuthenticationFailureHandler;
-import com.happy.springboot.security.handler.SecurityAuthenticationSuccessHandler;
-import com.happy.springboot.security.handler.SecurityLogoutSuccessHandler;
+import com.happy.springboot.admin.service.AdminUserDetailsServiceImpl;
+import com.happy.springboot.security.config.IgnoreUrlsConfig;
+import com.happy.springboot.security.handler.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +26,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private AdminUserDetailsService adminUserDetailsService;
+	private AdminUserDetailsServiceImpl adminUserDetailsService;
 
 	@Autowired
 	private SecurityAccessDeniedHandler securityAccessDeniedHandler;
