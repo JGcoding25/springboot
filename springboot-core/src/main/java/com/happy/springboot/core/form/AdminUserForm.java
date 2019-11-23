@@ -26,7 +26,7 @@ public class AdminUserForm extends Model<AdminUserForm> {
     @ApiModelProperty(value = "用户名")
     private String username;
 
-    @ApiModelProperty(value = "密码")
+    @ApiModelProperty(value = "密码，用RSA加密")
     private String password;
 
     @ApiModelProperty(value = "手机号")
