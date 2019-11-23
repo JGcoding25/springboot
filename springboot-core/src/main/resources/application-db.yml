@@ -1,0 +1,40 @@
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.happy.springboot.core.model
+debug: true
+
+spring:
+  datasource:
+    druid:
+      # druid基础配置
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # zeroDateTimeBehavior=exception（不指定，则默认）—>默认抛出异常，
+      # zeroDateTimeBehavior=convertToNull —>转化为null
+      # zeroDateTimeBehavior=round —>替换成最近的日期即XXXX-01-01
+      # serverTimezone=GMT%2B8 东八区时区
+      # allowMultiQueries=true 允许sql语句中有多个update或insert语句（批量更新或插入的时候）
+      url: jdbc:mysql://localhost:3306/happy_springboot?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: DjhDXS89TaqZF7muDnlFzuDmThd16U5T+JzaEeptkmQXUCWcqXKHKqDsd/xByvXBVQ3a5+xa7gK/2eHUZwWV2w==
+      # druid 连接池配置
+      filters: stat # 配置监控统计拦截的filters
+      max-active: 20 # 配置最大连接数
+      initial-size: 1 # 配置初始化大小
+      max-wait: 60000 # 配置获取连接等待超时的时间
+      min-idle: 1 # 最小空闲连接数
+      time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: select 'x'
+      test-while-idle: true # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除
+      test-on-borrow: false # 借出连接时不要测试，否则很影响性能
+      test-on-return: false # 归还连接时执行validationQuery检测连接是否有效，配置true会降低性能
+      pool-prepared-statements: false # 打开PSCache，并且指定每个连接上PSCache的大小，Oracle等支持游标的数据库，打开此开关，会以数量级提升性能，具体查阅PSCache相关资料
+      max-open-prepared-statements: -1 # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+      async-init: true # asyncInit是1.1.4中新增加的配置，如果有initialSize数量较多时，打开会加快应用启动时间
+      # 设置密码需要加密，并配置publicKey
+      connection-properties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAK6Q8PNFyrwdKFg6wJOhTqpZeMzltnw8OOrM6MqJgn4sFiyJuD+M6i1u1vO1cqgSKF/7enBHq2OmAJMz9+lCnNECAwEAAQ==
+      filter:
+        config:
+          enabled: true # 启动ConfigFilter

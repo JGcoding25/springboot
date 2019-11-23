@@ -54,7 +54,31 @@ public enum CodeEnums {
 	/**
 	 * 注册用户失败返回值
 	 */
-	REGISTER_FAILED("RegisterFailed", "注册用户失败");
+	REGISTER_FAILED("RegisterFailed", "注册用户失败"),
+	/**
+	 * 登录成功返回值
+	 */
+	LOGIN_SUCCESS("LoginSuccess", "登录成功"),
+	/**
+	 * 登录失败返回值
+	 */
+	LOGIN_FAILURE("LoginFailure", "登录失败"),
+	/**
+	 * 登出成功返回值
+	 */
+	LOGOUT_SUCCESS("LogoutSuccess", "登出成功"),
+	/**
+	 * 登出失败返回值
+	 */
+	LOGOUT_FAILURE("LogoutFailure", "登出失败"),
+	/**
+	 * 用户未登录返回值
+	 */
+	NO_LOGIN("NoLogin", "用户未登录"),
+	/**
+	 * 没有权限返回值
+	 */
+	NO_PERMISSION("NoPermission", "没有权限");
 
 	private String code;
 	private String message;

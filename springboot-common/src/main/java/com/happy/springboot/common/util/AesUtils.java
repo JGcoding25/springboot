@@ -1,10 +1,10 @@
 package com.happy.springboot.common.util;
 
-import com.sun.istack.internal.NotNull;
 import lombok.extern.log4j.Log4j2;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.validation.constraints.NotNull;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Random;

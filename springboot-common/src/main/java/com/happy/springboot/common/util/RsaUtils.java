@@ -37,6 +37,8 @@ public class RsaUtils {
 	 * 签名算法
 	 */
 	private static final String SIGN_ALGORITHMS = "SHA1WithRSA";
+
+
 	private static final String SIGN_SHA256RSA_ALGORITHMS = "SHA256WithRSA";
 
 	/**
@@ -123,7 +125,7 @@ public class RsaUtils {
 			PrivateKey priKey = getPrivateKeyFromPkcs8(KEY_ALGORITHM_RSA, Base64.getDecoder().decode(privateKey));
 			decryptedData = decrypt(content, priKey, charset);
 		} catch (Exception e) {
-			throw new Exception("RSAcontent = " + content + "; charset = " + charset + " ERROR = ", e);
+			throw new Exception("RSA content = " + content + "; charset = " + charset + " ERROR = ", e);
 		}
 		return decryptedData;
 	}

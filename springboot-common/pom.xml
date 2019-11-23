@@ -6,8 +6,9 @@
         <groupId>com.happy</groupId>
         <artifactId>springboot-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <packaging>jar</packaging>
     <artifactId>springboot-common</artifactId>
 
     <dependencies>
@@ -34,7 +35,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-
     </dependencies>
 
     <build>
@@ -42,6 +42,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>

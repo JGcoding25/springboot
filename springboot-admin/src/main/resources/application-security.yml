@@ -1,0 +1,9 @@
+ignored: #安全路径白名单
+  urls:
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /swagger/**
+    - /**/v2/api-docs
+    - /webjars/springfox-swagger-ui/**
+    - /actuator/**
+    - /druid/**

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.happy.springboot.core.dao.AdminUserDAO">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.happy.springboot.core.model.AdminUser">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="phone_number" property="phoneNumber" />
+        <result column="nick_name" property="nickName" />
+        <result column="real_name" property="realName" />
+        <result column="age" property="age" />
+        <result column="status" property="status" />
+        <result column="is_deleted" property="deleted" />
+        <result column="login_time" property="loginTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, username, password, phone_number, nick_name, real_name, age, status, is_deleted, login_time, create_time, update_time
+    </sql>
+
+</mapper>

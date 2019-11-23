@@ -6,11 +6,17 @@
         <groupId>com.happy</groupId>
         <artifactId>springboot-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>springboot-api</artifactId>
 
     <dependencies>
+
+        <!-- 引入其他子模块 begin -->
+        <dependency>
+            <groupId>com.happy</groupId>
+            <artifactId>springboot-core</artifactId>
+        </dependency>
+        <!-- 引入其他子模块 end -->
 
         <!-- swagger2  -->
         <dependency>
