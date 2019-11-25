@@ -1,4 +1,5 @@
 package com.happy.springboot.admin.controller;
+import java.time.LocalDateTime;
 
 
 import com.alibaba.fastjson.JSONObject;
@@ -7,11 +8,13 @@ import com.happy.springboot.common.model.BaseResult;
 import com.happy.springboot.core.form.AdminUserForm;
 import com.happy.springboot.core.model.AdminUser;
 import com.happy.springboot.core.service.AdminUserService;
+import com.happy.springboot.core.vo.AdminUserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,9 +38,12 @@ public class AdminUserController {
 	@ApiOperation(value = "根据ID获取用户信息")
 	@GetMapping(value = "/{id}")
 	@ApiImplicitParam(name = "id", value = "用户ID", required = true)
-	public BaseResult<AdminUser> getUserById(@PathVariable Integer id){
+	public BaseResult<AdminUserVO> getUserById(@PathVariable Integer id){
 		AdminUser adminUser = adminUserService.getById(id);
-		return new BaseResult<>(CodeEnums.SUCCESS,adminUser);
+		AdminUserVO adminUserVO = new AdminUserVO();
+		BeanUtils.copyProperties(adminUser,adminUserVO);
+
+		return new BaseResult<>(CodeEnums.SUCCESS,adminUserVO);
 	}
 
 	/**

@@ -78,7 +78,11 @@ public enum CodeEnums {
 	/**
 	 * 没有权限返回值
 	 */
-	NO_PERMISSION("NoPermission", "没有权限");
+	NO_PERMISSION("NoPermission", "没有权限"),
+	/**
+	 * token认证失败
+	 */
+	TOKEN_AUTHENTICATION_FAILURE("tokenAuthenticationFailure", "token认证失败");
 
 	private String code;
 	private String message;

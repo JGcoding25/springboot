@@ -1,8 +1,9 @@
 package com.happy.springboot.admin.config;
 
+import com.happy.springboot.admin.filter.JwtAuthenticationFilter;
 import com.happy.springboot.admin.service.AdminUserDetailsServiceImpl;
+import com.happy.springboot.security.component.*;
 import com.happy.springboot.security.config.IgnoreUrlsConfig;
-import com.happy.springboot.security.handler.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * security配置
@@ -73,9 +75,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// 其他的路径都是登录后才可访问
 				.anyRequest()
 				.authenticated()
-				// 去掉 CSRF 开启跨域
+				// 去掉CSRF,使用 JWT，关闭session
 				.and().csrf().disable()
-				// 使用 JWT，关闭session
+				// 开启跨域
+				.cors()
+				.and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				// 自定义未登录返回
 				.and()
@@ -98,9 +102,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// 无权访问 JSON 格式的数据
 				.and()
 				.exceptionHandling().accessDeniedHandler(securityAccessDeniedHandler)
+				// 添加自定义jwtToken拦截器
+				.and()
+				.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
 
 				// 注销用户自定义方法
-				.and()
 				.logout()
 				.logoutSuccessHandler(securityLogoutSuccessHandler)
 				.permitAll();
@@ -126,5 +132,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public IgnoreUrlsConfig ignoreUrlsConfig() {
 		return new IgnoreUrlsConfig();
+	}
+
+	@Bean
+	public JwtAuthenticationFilter jwtAuthenticationFilter() {
+		return new JwtAuthenticationFilter();
 	}
 }

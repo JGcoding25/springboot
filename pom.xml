@@ -34,7 +34,7 @@
         <dubbo.version>2.7.1</dubbo.version>
         <jackson.version>2.9.0</jackson.version>
         <rabbit.version>2.1.6.RELEASE</rabbit.version>
-        <jjwt.version>3.8.1</jjwt.version>
+        <jjwt.version>0.9.0</jjwt.version>
         <mybatis.springboot.version>2.1.1</mybatis.springboot.version>
         <druid.version>1.1.21</druid.version>
         <jbcrypt.version>0.4</jbcrypt.version>
@@ -102,12 +102,15 @@
                 <version>${jackson.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+            <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
             <dependency>
-                <groupId>com.auth0</groupId>
-                <artifactId>java-jwt</artifactId>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
+
+
+
 
             <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
             <dependency>

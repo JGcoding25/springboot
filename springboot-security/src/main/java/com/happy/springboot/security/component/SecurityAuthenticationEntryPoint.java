@@ -1,4 +1,4 @@
-package com.happy.springboot.security.handler;
+package com.happy.springboot.security.component;
 
 import com.alibaba.fastjson.JSON;
 import com.happy.springboot.common.constant.Constants;
