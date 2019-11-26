@@ -20,6 +20,7 @@
         <module>springboot-common</module>
         <module>springboot-core</module>
         <module>springboot-security</module>
+        <module>springboot-admin</module>
     </modules>
 
     <properties>
