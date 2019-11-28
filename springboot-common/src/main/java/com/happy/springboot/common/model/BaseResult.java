@@ -46,4 +46,12 @@ public class BaseResult<T> implements Serializable {
 		this.message = codeEnums.getMessage();
 		this.data = data;
 	}
+
+	public static BaseResult success(String message){
+		return new BaseResult("Success",message);
+	}
+
+	public static BaseResult error(String message){
+		return new BaseResult("Error",message);
+	}
 }

@@ -24,11 +24,6 @@
 
         <!-- 引入其他子模块 end -->
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-
         <!-- 解决ConfigurationProperties报错 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

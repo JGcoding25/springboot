@@ -12,6 +12,10 @@ public enum CodeEnums {
 	 */
 	SUCCESS("Success","成功"),
 	/**
+	 * 错误
+	 */
+	ERROR("Error","发生错误"),
+	/**
 	 * 系统异常返回值
 	 */
 	SYSTEM_ERROR("SystemError", "系统异常"),
